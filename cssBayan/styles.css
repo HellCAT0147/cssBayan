@@ -1,5 +1,6 @@
 html {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .all-memes {
@@ -22,10 +23,17 @@ input {
 
 input:checked + label {
   max-height: 100vh;
+  color: black;
+}
+
+input:checked + label .title img,
+label:hover .title img {
+  transform: rotate(45deg);
 }
 
 label {
   font-family: 'Comfortaa', cursive;
+  color: blue;
   font-size: 1.2em;
   cursor: pointer;
   display: block;
@@ -40,7 +48,32 @@ label:hover {
   transition: 0.7s ease-out;
 }
 
+.all-memes:hover label {
+  color: black;
+}
+
+.title img {
+  opacity: 0;
+}
+
+.all-memes:hover .title img {
+  opacity: 1;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
 .meme-holder {
   display: flex;
   justify-content: center;
+  transform: scale(0);
+  transition: 0.1s;
+}
+
+label:hover .meme-holder,
+input:checked + label .meme-holder {
+  transition: 0.35s ease-out;
+  transform: scale(1);
 }
