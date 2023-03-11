@@ -1,13 +1,33 @@
 html {
   height: 100vh;
   overflow-y: hidden;
+  font-family: 'Comfortaa', cursive;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.all-memes {
+.container {
   width: 40%;
   margin: 5vh auto;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 1300px) {
+  
+  .container {
+    width: 55%;
+    margin: 5vh auto;
+  }
+
+}
+
+@media (max-width: 820px) {
+  
+  .container {
+    width: 70%;
+    margin: 5vh auto;
+  }
+
 }
 
 .meme {
@@ -26,13 +46,24 @@ input:checked + label {
   color: black;
 }
 
-input:checked + label .title img,
-label:hover .title img {
-  transform: rotate(45deg);
+input:checked + label .title img {
+  transform: rotate(225deg);
+  transition: 0.5s transform;
+}
+
+label .title img {
+  transition: 0.5s transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  label:hover .title img {
+    transform: rotate(225deg);
+  }
+
 }
 
 label {
-  font-family: 'Comfortaa', cursive;
   color: blue;
   font-size: 1.2em;
   cursor: pointer;
@@ -43,21 +74,46 @@ label {
   transition: 0.2s ease-in-out;
 }
 
-label:hover {
-  max-height: 90vh;
-  transition: 0.7s ease-out;
+@media (hover: none) and (pointer: coarse) {
+  
+  label {
+    transition: 0.7s max-height ease-in-out -0.35s;
+  }
+
+  input:checked + label {
+    max-height: 90vh;
+    transition: 0.7s max-height ease-in-out;
+  }
+
 }
 
-.all-memes:hover label {
-  color: black;
+@media (hover: hover) and (pointer: fine) {
+
+  label:hover {
+    max-height: 90vh;
+    transition: 0.7s ease-out;
+  }
+
+  .all-memes:hover label {
+    color: black;
+  }
+
 }
 
-.title img {
-  opacity: 0;
+@media (hover: hover) and (pointer: fine) {
+
+  .title img {
+    opacity: 0;
+  }
+
 }
 
-.all-memes:hover .title img {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+
+  .all-memes:hover .title img {
+    opacity: 1;
+  }
+
 }
 
 .title {
@@ -72,15 +128,68 @@ label:hover {
   transition: 0.1s;
 }
 
-label:hover .meme-holder,
+@media (hover: hover) and (pointer: fine) {
+
+  label:hover .meme-holder {
+    transition: 0.35s ease-out;
+    transform: scale(1);
+  }
+
+}
+
 input:checked + label .meme-holder {
   transition: 0.35s ease-out;
   transform: scale(1);
 }
 
-label:active {
-  transition: none;
-  color: blue!important;
-  transition: 0.4s;
-  filter: opacity(0.5);
+@media (max-width: 320px) {
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0.2em 0;
+    font-size: 1.5em;
+  }
+
+  label {
+    font-size: 1em;
+    max-height: 2.25em;
+  }
+
+  p {
+    margin: 0.75em 0;
+  }
+
+  input:checked + label {
+    max-height: 100vh;
+  }
+
+  .meme-holder {
+    height: 50vh;
+  }
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  label:active {
+    transition: none;
+    color: blue!important;
+    transition: 0.4s;
+    filter: opacity(0.5);
+  }
+
+}
+
+@media (hover: none) and (pointer: coarse) {
+
+  .title:active {
+    transition: none;
+    transition: 0.4s;
+    filter: opacity(0.5);
+  }
+
 }
